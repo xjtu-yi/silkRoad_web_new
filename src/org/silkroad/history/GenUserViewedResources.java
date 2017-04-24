@@ -1,4 +1,4 @@
-package org.silkroad.processing.logs;
+package org.silkroad.history;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -13,7 +13,18 @@ import com.mongodb.client.MongoCursor;
 * @author : wuke
 * @date   : 2017年4月22日下午9:03:06
 * Title   : GenUserResources
-* Description : 
+* Description : Generate user viewed resources, store in silkRoad.user_viewed_company, 
+*     silkRoad.user_viewed_country...
+* An example in user_viewed_company,
+{
+	"_id" : ObjectId("58fc5ed3d1ad214d60a13fef"),
+	"user_id" : "908",
+	"companySet" : {
+		"0014776367997089a447e3ef7874d82b5015f3316b4b829000" : NumberInt("1"),
+		"001477636798918cc8557669e3d4c27a5f03f3b09b16724000" : NumberInt("1"),
+		"0014776367988093e75c709322d4576a176fa7467b647b5000" : NumberInt("1")
+	}
+}
 */
 public class GenUserViewedResources {
 
@@ -22,9 +33,16 @@ public class GenUserViewedResources {
 	}
 	
 	/**
-	 * Six MongoCollection
+	 * 增量计算，待补充
 	 */
 	static void readHistoryRecords() {
+		
+	}
+	
+	/**
+	 * 增量计算，待补充
+	 */
+	static void readOneLogs() {
 		
 	}
 	
