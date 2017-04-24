@@ -1,6 +1,8 @@
-package org.silkroad.bean;
+package org.silkroad.abandon;
 
-public class Conference extends RecResource {
+import org.silkroad.bean.Resource;
+
+public class Conference extends Resource {
 	private String conference_name;
 	private String organizer;
 	private String start_date;

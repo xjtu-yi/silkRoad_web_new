@@ -1,6 +1,8 @@
-package org.silkroad.bean;
+package org.silkroad.abandon;
 
-public class Ebook extends RecResource {
+import org.silkroad.bean.Resource;
+
+public class Ebook extends Resource {
 	private String isbn;
 	private String eisbn;
 	private String author;

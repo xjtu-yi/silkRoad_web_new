@@ -1,6 +1,8 @@
-package org.silkroad.bean;
+package org.silkroad.abandon;
 
-public class News extends RecResource {
+import org.silkroad.bean.Resource;
+
+public class News extends Resource {
 	private String title;
 	private String content;
 	private String img_url;

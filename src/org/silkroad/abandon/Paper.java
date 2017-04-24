@@ -1,6 +1,8 @@
-package org.silkroad.bean;
+package org.silkroad.abandon;
 
-public class Paper extends RecResource {
+import org.silkroad.bean.Resource;
+
+public class Paper extends Resource {
 	private String title;
 	private String year;
 	private String volume;

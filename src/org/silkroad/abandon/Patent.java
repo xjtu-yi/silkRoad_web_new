@@ -1,6 +1,8 @@
-package org.silkroad.bean;
+package org.silkroad.abandon;
 
-public class Patent extends RecResource {
+import org.silkroad.bean.Resource;
+
+public class Patent extends Resource {
 	private String patent_number;
 	private String title;
 	private String inventor;
