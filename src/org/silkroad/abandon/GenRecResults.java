@@ -28,9 +28,9 @@ public class GenRecResults {
 	 * */
 	public static void main(String[] args) {
 		String user_id = "admin";
-		ArrayList<RecResource> recResources = new ArrayList<RecResource>();
+		ArrayList<Resource> recResources = new ArrayList<Resource>();
 		
-		RecResource recRes1 = new RecResource("00147584817501367cc3ae6c77a4b49a628571ac0cc6e27000", 
+		Resource recRes1 = new Resource("00147584817501367cc3ae6c77a4b49a628571ac0cc6e27000", 
 				"news", "http://ikcest.xjtu.edu.cn/info/1002/29560.htm");
 		
 		//RecResource recRes1 = new RecResource();
@@ -38,7 +38,7 @@ public class GenRecResults {
 		//recRes1.setRes_type("news");
 		//recRes1.setUrl("http://www.sciencemag.org/news/2016/10/alien-life-could-feed-cosmic-rays");
 		
-		RecResource recRes2 = new RecResource("0014639682192079b9c1699be8044b0a30e2c150828f201000", 
+		Resource recRes2 = new Resource("0014639682192079b9c1699be8044b0a30e2c150828f201000", 
 				"ebook", "http://ebooks.spiedigitallibrary.org/book.aspx?bookid=58");
 		
 		//RecResource recRes2 = new RecResource();
@@ -46,7 +46,7 @@ public class GenRecResults {
 		//recRes2.setRes_type("ebook");
 		//recRes2.setUrl("http://ebooks.spiedigitallibrary.org/book.aspx?bookid=91");
 		
-		RecResource recRes3 = new RecResource("001476715791812fba189de04204b05a72c495c03d5049e000", 
+		Resource recRes3 = new Resource("001476715791812fba189de04204b05a72c495c03d5049e000", 
 				"uansr", "https://www.scopus.com/inward/record.uri?eid=2-s2.0-84981516063&partnerID=40&md5=dbda71792f7556068a584da301bf7633");
 		
 		//RecResource recRes3 = new RecResource();
@@ -54,7 +54,7 @@ public class GenRecResults {
 		//recRes3.setRes_type("uansr");
 		//recRes3.setUrl("https://www.scopus.com/inward/record.uri?eid=2-s2.0-84964308492&partnerID=40&md5=abe17e1d57cdef1cdf8e7d0eabf0c385");
 		
-		RecResource recRes4 = new RecResource("00146656739590072a264cd71544f969a73a398087cb085000", 
+		Resource recRes4 = new Resource("00146656739590072a264cd71544f969a73a398087cb085000", 
 				"conf", "http://www.zingconferences.com/conferences/neurobiology-memory-c");
 		
 		//RecResource recRes4 = new RecResource();
@@ -62,7 +62,7 @@ public class GenRecResults {
 		//recRes4.setRes_type("conf");
 		//recRes4.setUrl("https://www.grc.org/programs.aspx?id=12508");
 				
-		RecResource recRes5 = new RecResource("0014762417923130e5b90fb66da4421b908a14a30014af4000", 
+		Resource recRes5 = new Resource("0014762417923130e5b90fb66da4421b908a14a30014af4000", 
 				"patent", "http://ikcest.xjtu.edu.cn/patent_n_content.jsp?urltype=tree.TreeTempUrl&wbtreeid=1214&patent_number=CN105288577-A");
 		
 		//RecResource recRes5 = new RecResource();
@@ -84,7 +84,7 @@ public class GenRecResults {
 	 * @param user_id
 	 * @param recResources
 	 */
-	static void complementResInfoStoreIntoMongo (String user_id, ArrayList<RecResource> recResources) {
+	static void complementResInfoStoreIntoMongo (String user_id, ArrayList<Resource> recResources) {
 		// get mysql conn
 		Connection mysqlConn = MySQLConn.getConn();
 		
@@ -94,7 +94,7 @@ public class GenRecResults {
 		MongoCollection<Document> mongoCollection = MongoConn.getMongoCollection(databaseName, mongoCollectionName);
 		
 		// store the complete infotmation of the resource
-		RecResource recResource = null;
+		Resource recResource = null;
 		/*News news = new News();
 		Ebook ebook = new Ebook();
 		Paper paper = new Paper();
@@ -149,7 +149,7 @@ public class GenRecResults {
 	 * @return
 	 * @throws SQLException
 	 */
-	private static News selectNewsInfo(Connection mysqlConn, RecResource recResult) throws SQLException {
+	private static News selectNewsInfo(Connection mysqlConn, Resource recResult) throws SQLException {
 		News news = new News();
 		
 		String res_id = recResult.getRes_id();
@@ -181,7 +181,7 @@ public class GenRecResults {
 	 * @return
 	 * @throws SQLException
 	 */
-	private static Ebook selectEbookInfo(Connection mysqlConn, RecResource recResult) throws SQLException {
+	private static Ebook selectEbookInfo(Connection mysqlConn, Resource recResult) throws SQLException {
 		Ebook ebook = new Ebook();
 		
 		String res_id = recResult.getRes_id();
@@ -218,7 +218,7 @@ public class GenRecResults {
 	 * @return
 	 * @throws SQLException
 	 */
-	private static Paper selectPaperInfo(Connection mysqlConn, RecResource recResult) throws SQLException {
+	private static Paper selectPaperInfo(Connection mysqlConn, Resource recResult) throws SQLException {
 		Paper paper = new Paper();
 		
 		String res_id = recResult.getRes_id();
@@ -251,7 +251,7 @@ public class GenRecResults {
 	 * @return
 	 * @throws SQLException
 	 */
-	private static Conference selectConfInfo(Connection mysqlConn, RecResource recResult) throws SQLException {
+	private static Conference selectConfInfo(Connection mysqlConn, Resource recResult) throws SQLException {
 		Conference conf = new Conference();
 		
 		String res_id = recResult.getRes_id();
@@ -283,7 +283,7 @@ public class GenRecResults {
 	 * @return
 	 * @throws SQLException
 	 */
-	private static Patent selectPatentInfo(Connection mysqlConn, RecResource recResult) throws SQLException {
+	private static Patent selectPatentInfo(Connection mysqlConn, Resource recResult) throws SQLException {
 		Patent patent = new Patent();
 		
 		String res_id = recResult.getRes_id();
@@ -314,7 +314,7 @@ public class GenRecResults {
 	 * @param user_id
 	 * @param mongoCollection
 	 */
-	private static void storeRecResourceIntoMongo(RecResource recResource, String user_id, MongoCollection<Document> mongoCollection) {
+	private static void storeRecResourceIntoMongo(Resource recResource, String user_id, MongoCollection<Document> mongoCollection) {
 		// Gson提供了fromJson() 和toJson() 两个直接用于解析和生成的方法，前者实现反序列化，后者实现了序列化
 		Gson gson = new Gson();	
 		String json = gson.toJson(recResource);
