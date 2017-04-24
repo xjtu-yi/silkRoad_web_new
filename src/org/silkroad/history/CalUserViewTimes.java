@@ -1,4 +1,4 @@
-package org.silkroad.user;
+package org.silkroad.history;
 
 import org.bson.Document;
 import org.silkroad.utility.MongoConn;
@@ -10,7 +10,18 @@ import static com.mongodb.client.model.Filters.*;
 * @author : wuke
 * @date   : 2017年4月23日上午11:04:41
 * Title   : CalUserViewedTimes
-* Description : 
+* Description : Calculate user's view tiems of different type resources, store in silkRoad.user_viewed_times
+* an example
+{
+	"_id" : ObjectId("58fc5fb0d1ad2143601beba2"),
+	"user_id" : "100",
+	"company" : NumberInt("1"),
+	"country" : NumberInt("38"),
+	"pebook" : NumberInt("0"),
+	"regulation" : NumberInt("11"),
+	"uansr" : NumberInt("49"),
+	"uebook" : NumberInt("17")
+}
 */
 public class CalUserViewTimes {
 	private static final String[] RESOURCE_TYPE =  {"company", "country", "pebook", "regulation", "uansr", "uebook"};
