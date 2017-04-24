@@ -20,7 +20,7 @@ import com.mongodb.client.MongoCollection;
 * Description : 
 */
 @WebServlet("/UserProfiles")
-public class UserProfiles extends HttpServlet {
+public class UserProfilesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
