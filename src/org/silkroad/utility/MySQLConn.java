@@ -10,9 +10,14 @@ import java.sql.DriverManager;
  * Description : 
  */
 public class MySQLConn {
+	public static void main(String[] args) {
+		MySQLConn.getConn();
+	}
+	
 	public static Connection getConn() {
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/silkroadresource_new";
+		// String url = "jdbc:mysql://localhost:3306/silkroadresource_new";
+		String url = "jdbc:mysql://localhost:3306/silkroadresource_new?characterEncoding=utf8&useSSL=false";
 		String username = "root";
 		String password = "1234";
 		Connection conn = null;
