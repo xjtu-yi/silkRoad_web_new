@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +20,7 @@ import org.bson.Document;
 import org.silkroad.utility.MongoConn;
 import org.silkroad.utility.MySQLConn;
 
+import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 
 /**
@@ -44,19 +47,19 @@ public class UserViewedHistoryController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Get userId and res_type
-		// String user_id = request.getParameter("user_id");
-		String user_id = request.getSession().getAttribute("user_id").toString(); // 
+		String user_id = request.getParameter("user_id");
+		//String user_id = request.getSession().getAttribute("user_id").toString(); 
 		String res_type = request.getParameter("res_type");
 		
-		user_id = "888";
+		
 
 		// Query from MongoDB
-		String collectionName = "user_viewed_" + res_type;
+		String collectionName = "user_viewed_" + res_type + "_complete";
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
 
-		Document doc = collection.find(eq("user_id", user_id)).first();
+		List<Document> docsArr = collection.find(eq("user_id", user_id)).into(new ArrayList<Document>());
 
-		String json = doc.toJson();
+		String json = new Gson().toJson(docsArr);
 
 		// Respond to the request
 		response.setContentType("application/json;charset=utf-8");
