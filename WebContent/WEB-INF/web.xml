@@ -12,7 +12,7 @@
   
   <servlet>
     <servlet-name>userInfo</servlet-name>
-    <servlet-class>org.silkroad.controller.UserProfiles</servlet-class>
+    <servlet-class>org.silkroad.controller.UserProfilesController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>userInfo</servlet-name>
@@ -21,7 +21,7 @@
   
   <servlet>
     <servlet-name>userHistory</servlet-name>
-    <servlet-class>org.silkroad.controller.UserViewedHistory</servlet-class>
+    <servlet-class>org.silkroad.controller.UserViewedHistoryController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>userHistory</servlet-name>
