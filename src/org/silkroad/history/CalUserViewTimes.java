@@ -13,6 +13,13 @@ import static com.mongodb.client.model.Filters.*;
 * Description : Calculate user's view tiems of different type resources, store in silkRoad.user_viewed_times
 * an example
 {
+	"_id" : ObjectId("58fc5ed3d1ad214d60a141ae"),
+	"user_id" : "100",
+	"companySet" : {
+		"001477636798286a9c328e5a86b4084ae61dd168375405b000" : NumberInt("1")
+	}
+} ->
+{
 	"_id" : ObjectId("58fc5fb0d1ad2143601beba2"),
 	"user_id" : "100",
 	"company" : NumberInt("1"),
@@ -81,6 +88,15 @@ public class CalUserViewTimes {
 	 * @param user_id
 	 * @param res_type
 	 * @return times
+	 * {
+	 *     "_id" : ObjectId("58fc5ed3d1ad214d60a13fef"),
+	 *     "user_id" : "908",
+	 *     "companySet" : {
+	 *         "0014776367997089a447e3ef7874d82b5015f3316b4b829000" : NumberInt("1"),
+	 *         "001477636798918cc8557669e3d4c27a5f03f3b09b16724000" : NumberInt("1"),
+	 *         "0014776367988093e75c709322d4576a176fa7467b647b5000" : NumberInt("1")
+	 *     }
+	 * }
 	 */
 	private static int calUserViewedTimesOne(String user_id, String res_type) {		
 		String collectionName = "user_viewed_" + res_type;
@@ -90,7 +106,7 @@ public class CalUserViewTimes {
 		
 		Document doc = collection.find(eq("user_id", user_id)).first();
 		if(doc != null) {
-		    Document resTimes = (Document) doc.get(res_type + "Set");
+		    Document resTimes = (Document) doc.get(res_type + "Set"); // Object -> Document
 		    times = resTimes.size();
 		}
 		
