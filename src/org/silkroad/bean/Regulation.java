@@ -6,29 +6,27 @@ package org.silkroad.bean;
  * Title : Regulation 
  * Description : 政策法规数据库(IEEE)
  */
-public class Regulation extends RecResource {
+public class Regulation extends Resource {
 	private String doi;
 	private String title;
 	private String summary; // "abstract" in MySQL
 	private String scope;
-	private String author_keywords;
+	private String purpose;
 	private String date_publication;
-	private String online_sibn;
 	private String full_text_url; // "full_text" in MySQL
 
 	public Regulation() {
 	}
 
-	public Regulation(String doi, String title, String summary, String scope, String author_keywords,
-			String date_publication, String online_sibn, String full_text_url) {
+	public Regulation(String doi, String title, String summary, String scope, String purpose,
+			String date_publication, String full_text_url) {
 		super();
 		this.doi = doi;
 		this.title = title;
 		this.summary = summary;
 		this.scope = scope;
-		this.author_keywords = author_keywords;
+		this.purpose = purpose;
 		this.date_publication = date_publication;
-		this.online_sibn = online_sibn;
 		this.full_text_url = full_text_url;
 	}
 
@@ -64,12 +62,12 @@ public class Regulation extends RecResource {
 		this.scope = scope;
 	}
 
-	public String getAuthor_keywords() {
-		return author_keywords;
+	public String getPurpose() {
+		return purpose;
 	}
 
-	public void setAuthor_keywords(String author_keywords) {
-		this.author_keywords = author_keywords;
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
 	}
 
 	public String getDate_publication() {
@@ -78,14 +76,6 @@ public class Regulation extends RecResource {
 
 	public void setDate_publication(String date_publication) {
 		this.date_publication = date_publication;
-	}
-
-	public String getOnline_sibn() {
-		return online_sibn;
-	}
-
-	public void setOnline_sibn(String online_sibn) {
-		this.online_sibn = online_sibn;
 	}
 
 	public String getFull_text_url() {

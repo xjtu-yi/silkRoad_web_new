@@ -6,7 +6,7 @@ package org.silkroad.bean;
  * Title : PeBook 
  * Description : 人口数据库(pebook)
  */
-public class PeBook extends RecResource{
+public class PeBook extends Resource{
 	private String title;
 	private String summary;
 	private String book_title;

@@ -6,31 +6,24 @@ package org.silkroad.bean;
  * Title : UeBook 
  * Description : 历史文化数据库(History and Culture)
  */
-public class UeBook extends RecResource {
+public class UeBook extends Resource {
 	private String author;
 	private String title;
-	private String page_counter;
-	private String publisher;
 	private String year;
 	private String img_url;
 	private String summary;
-	private String language;
 	private String nation;
 
 	public UeBook() {
 	}
 
-	public UeBook(String author, String title, String page_counter, String publisher, String year,
-			String img_url, String summary, String language, String nation) {
+	public UeBook(String author, String title, String year, String img_url, String summary, String nation) {
 		super();
 		this.author = author;
 		this.title = title;
-		this.page_counter = page_counter;
-		this.publisher = publisher;
 		this.year = year;
 		this.img_url = img_url;
 		this.summary = summary;
-		this.language = language;
 		this.nation = nation;
 	}
 	
@@ -48,22 +41,6 @@ public class UeBook extends RecResource {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getPage_counter() {
-		return page_counter;
-	}
-
-	public void setPage_counter(String page_counter) {
-		this.page_counter = page_counter;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
 	}
 
 	public String getYear() {
@@ -88,14 +65,6 @@ public class UeBook extends RecResource {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
 	}
 
 	public String getNation() {

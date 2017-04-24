@@ -6,7 +6,7 @@ package org.silkroad.bean;
  * Title : Company 
  * Description : 工业经济数据库(Fortune Global 500)
  */
-public class Company extends RecResource{
+public class Company extends Resource{
 	private String name;
 	private String summary;
 	private String location;

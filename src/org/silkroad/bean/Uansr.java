@@ -6,7 +6,7 @@ package org.silkroad.bean;
  * Title : Uansr 
  * Description : 教育科技数据库(Education of Science)
  */
-public class Uansr extends RecResource {
+public class Uansr extends Resource {
 	private String author;
 	private String title;
 	private String year;

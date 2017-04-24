@@ -6,25 +6,23 @@ package org.silkroad.bean;
  * Title : Country 
  * Description : 国情咨文数据库(Nation Conditions)
  */
-public class Country extends RecResource {
+public class Country extends Resource {
 	private String title;
 	private String summary; // "abstract" in MySQL countries_repo
 	private String pub_place; // "publish_place" in MySQL countries_repo
 	private String pub_date;
-	private int year;
 	private String palce; // "subjects" in MySQL
 
 	public Country() {
 
 	}
 
-	public Country(String title, String summary, String pub_place, String pub_date, int year, String palce) {
+	public Country(String title, String summary, String pub_place, String pub_date, String palce) {
 		super();
 		this.title = title;
 		this.summary = summary;
 		this.pub_place = pub_place;
 		this.pub_date = pub_date;
-		this.year = year;
 		this.palce = palce;
 	}
 
@@ -58,14 +56,6 @@ public class Country extends RecResource {
 
 	public void setPub_date(String pub_date) {
 		this.pub_date = pub_date;
-	}
-
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
 	}
 
 	public String getPalce() {
