@@ -1,12 +1,8 @@
-package org.silkroad.controller;
+package org.silkroad.abandon;
 
 import static com.mongodb.client.model.Filters.eq;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.bson.Document;
 import org.silkroad.utility.MongoConn;
-import org.silkroad.utility.MySQLConn;
 
 import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 
 /**
  * @author : wuke
- * @date : 2017年4月23日下午3:30:06 Title : UserViewedHistory Description :
+ * @date : 2017年4月23日下午3:30:06 
+ * Title : UserViewedHistory 
+ * Description : // package org.silkroad.controller;
  */
 @WebServlet("/UserViewedHistory")
-public class UserViewedHistoryController extends HttpServlet {
+public class UserHistoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -47,23 +45,24 @@ public class UserViewedHistoryController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Get userId and res_type
-		String user_id = request.getParameter("user_id");
-		//String user_id = request.getSession().getAttribute("user_id").toString(); 
 		String res_type = request.getParameter("res_type");
-		
-		
+		String user_id = request.getParameter("user_id");
+		//String user_id = request.getSession().getAttribute("user_id").toString(); 		
 
 		// Query from MongoDB
 		String collectionName = "user_viewed_" + res_type + "_complete";
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		
+		BasicDBObject sort = new BasicDBObject();
+		sort.put("times", -1); // descending by "times"
 
-		List<Document> docsArr = collection.find(eq("user_id", user_id)).into(new ArrayList<Document>());
+		List<Document> docsArr = collection.find(eq("user_id", user_id)).sort(sort).limit(10).into(new ArrayList<Document>());
 
 		String json = new Gson().toJson(docsArr);
 
 		// Respond to the request
 		response.setContentType("application/json;charset=utf-8");
-		response.addHeader("Access-Control-Allow-Origin", "*"); // 控制访问
+		response.addHeader("Access-Control-Allow-Origin", "*"); // 访问控制
 		response.getWriter().write(json);
 	}
 }
