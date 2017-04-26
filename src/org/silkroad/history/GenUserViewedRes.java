@@ -26,10 +26,10 @@ import com.mongodb.client.MongoCursor;
 	}
 }
 */
-public class GenUserViewedResources {
+public class GenUserViewedRes {
 
 	public static void main(String[] args) {
-		GenUserViewedResources.readLogs();
+		GenUserViewedRes.readLogs();
 	}
 	
 	/**
@@ -95,12 +95,12 @@ public class GenUserViewedResources {
 		}
 		
 		// Store into MongoDB		
-		GenUserViewedResources.storeUserViewedResources(company, "company");
-		GenUserViewedResources.storeUserViewedResources(country, "country");
-		GenUserViewedResources.storeUserViewedResources(pebook, "pebook");
-		GenUserViewedResources.storeUserViewedResources(regulation, "regulation");
-		GenUserViewedResources.storeUserViewedResources(uansr, "uansr");
-		GenUserViewedResources.storeUserViewedResources(uebook, "uebook");
+		GenUserViewedRes.storeUserViewedResources(company, "company");
+		GenUserViewedRes.storeUserViewedResources(country, "country");
+		GenUserViewedRes.storeUserViewedResources(pebook, "pebook");
+		GenUserViewedRes.storeUserViewedResources(regulation, "regulation");
+		GenUserViewedRes.storeUserViewedResources(uansr, "uansr");
+		GenUserViewedRes.storeUserViewedResources(uebook, "uebook");
 	}
 	
 	/**
