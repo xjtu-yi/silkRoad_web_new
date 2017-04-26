@@ -19,7 +19,6 @@ import com.mongodb.client.MongoCursor;
 * @date   : 2017年4月24日上午11:31:36
 * Title   : CompleteUserViewedResInfo
 * Description : Complete the information of resource in user_viewed_company, user_viewed_country...
-* 没有加入观看次数
 * 没有考虑增量计算
 */
 public class CompleteUserViewedResInfo {
