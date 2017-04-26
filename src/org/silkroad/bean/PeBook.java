@@ -2,14 +2,41 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017Äê4ÔÂ21ÈÕÏÂÎç9:11:58 
+ * @date : 2017ï¿½ï¿½4ï¿½ï¿½21ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9:11:58 
  * Title : PeBook 
- * Description : ÈË¿ÚÊý¾Ý¿â(pebook)
+ * Description : ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½(pebook)
  */
 public class PeBook extends Resource{
 	private String title;
 	private String summary;
 	private String book_title;
+	private String author;
+	private String doi;
+	private String year;
+
+	public String getDoi() {
+		return doi;
+	}
+
+	public void setDoi(String doi) {
+		this.doi = doi;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
 	public PeBook() {
 
