@@ -82,8 +82,7 @@
     <meta name="keywords" content="国际工程科技知识中心">
     <script type="text/javascript" src="resource/material/vsbscreen.min.js" id="_vsbscreen" devices="pc|pad"></script>
     <script type="text/javascript" src="resource/material/counter.js"></script>
-    <script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1258519432)</script>
-    <script src="build/dist/echarts.js"></script>   
+    <script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1258519432)</script>  
 </head>
 
 <body style="zoom: 1">

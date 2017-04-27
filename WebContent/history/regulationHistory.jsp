@@ -83,7 +83,6 @@
     <script type="text/javascript" src="resource/material/vsbscreen.min.js" id="_vsbscreen" devices="pc|pad"></script>
     <script type="text/javascript" src="resource/material/counter.js"></script>
     <script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1258519432)</script>
-    <script src="build/dist/echarts.js"></script>   
 </head>
 
 <body style="zoom: 1">
@@ -230,7 +229,7 @@
         <!-- 小标题 end -->
 
     	<!-- main body start -->
-        <div class="jd_main" style="min-height: 1200px">
+        <div class="jd_main" style="min-height: 950px">
             <div class="jd_main_sidebar">
                 <a href="profiles.html" class="cur">Profiles</a>
                 <a href="hotResources.html">Hot Resources</a>
@@ -275,7 +274,7 @@
                         <strong class="companyName"><%out.println(title);%></strong>
                     </a>
                     <p class="company-tag">Abstract</p>
-                    <p><%out.println(summary);%></p>
+                    <p style="height:35px; overflow:hidden;"><%out.println(summary);%></p>
                     <p>
                         <storng class="company-tag">Publication Date</storng>&nbsp;<%out.println(date_publication);%>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
