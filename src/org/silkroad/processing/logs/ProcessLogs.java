@@ -23,23 +23,28 @@ public class ProcessLogs {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 		
-		List<Document> logsDocs = ProcessLogs.readLogs();
+		List<Document> logsDocs = ProcessLogs.readLogs(PATH);
 		
 		long end1 = System.currentTimeMillis();
 		System.out.println("Cost " + (end1 - start)/1000 + " seconds"); // Cost 816 seconds
 		
-		ProcessLogs.storeOneDayLogs(logsDocs);
+		ProcessLogs.storeLogs(logsDocs);
 		
 		long end2 = System.currentTimeMillis();
 		System.out.println("Cost " + (end2 - end1)/1000 + " seconds"); // Cost 4 seconds
 	}
-
+	
+	public static void initProcessLogs(String path) {
+		List<Document> logsDocs = ProcessLogs.readLogs(path);
+		ProcessLogs.storeLogs(logsDocs);
+	}
+	
 	/**
 	 * 
 	 * @return logsDocs ArrayList<Document>
 	 */
-	private static List<Document> readLogs() {
-		String jsonContext = ReadFile.readFile(PATH);
+	private static List<Document> readLogs(String path) {
+		String jsonContext = ReadFile.readFile(path);
 		
 		JSONArray jsonArr = JSONArray.fromObject(jsonContext);
 		
@@ -57,8 +62,11 @@ public class ProcessLogs {
 	 * Store logs Documents
 	 * @param documents
 	 */
-	static void storeOneDayLogs(List<Document> documents) {
+	static void storeLogs(List<Document> documents) {
 		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection("silkRoad", "logs");
+		
+		logsCollection.drop(); // delete the old data
+		logsCollection = MongoConn.getMongoCollection("silkRoad", "logs");
 		
 		logsCollection.insertMany(documents);
 	}

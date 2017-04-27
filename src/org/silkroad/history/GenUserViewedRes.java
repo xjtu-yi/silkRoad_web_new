@@ -46,7 +46,7 @@ public class GenUserViewedRes {
 		
 	}
 	
-	static void readLogs() {
+	public static void readLogs() {
 		HashMap<String, HashMap<String, Integer>> company = new HashMap<String, HashMap<String, Integer>>();
 		HashMap<String, HashMap<String, Integer>> country = new HashMap<String, HashMap<String, Integer>>();
 		HashMap<String, HashMap<String, Integer>> pebook = new HashMap<String, HashMap<String, Integer>>();
@@ -79,7 +79,7 @@ public class GenUserViewedRes {
 			case "Nation Conditions":
 				addOneRecord(res_id, user_id, country);
 				break;
-			case "Pebook":
+			case "pebook":
 				addOneRecord(res_id, user_id, pebook);
 				break;
 			case "ieee":
@@ -137,6 +137,7 @@ public class GenUserViewedRes {
 	private static void storeUserViewedResources(HashMap<String, HashMap<String, Integer>> records, String res_type) {
 		String collectionName = "user_viewed_" + res_type;
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		
 	    collection.drop(); // delete the old data
 	    collection = MongoConn.getMongoCollection("silkRoad", collectionName);
 	    

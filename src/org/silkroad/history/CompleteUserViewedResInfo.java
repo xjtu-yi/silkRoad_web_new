@@ -26,10 +26,10 @@ public class CompleteUserViewedResInfo {
 	private static final Connection MYSQLCONN = MySQLConn.getConn();
 	
 	public static void main(String[] args) {
-		CompleteUserViewedResInfo.deleteOldData();
-		
 		long start = System.currentTimeMillis();
+		
 		CompleteUserViewedResInfo.completeAllKindsResInfo();
+		
 		long end = System.currentTimeMillis();
 		System.out.println("Cost " + (end - start) / 1000 + " seconds!");
 	}
@@ -38,6 +38,8 @@ public class CompleteUserViewedResInfo {
 	 * 
 	 */
 	public static void completeAllKindsResInfo() {
+		CompleteUserViewedResInfo.deleteOldData(); // delete the old data
+		
 		for(String res_type : RESOURCE_TYPE)
 			CompleteUserViewedResInfo.completeOneKindResInfo(res_type);
 	}

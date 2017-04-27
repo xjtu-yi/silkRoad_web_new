@@ -21,13 +21,13 @@ public class CalHotResources {
 	private static final String[] RESOURCE_TYPE =  {"company", "country", "pebook", "regulation", "uansr", "uebook"};
 	
 	public static void main(String[] args) {
-		CalHotResources.calAllRoles();
+		CalHotResources.calAllRolesHotRes();
 	}
 	
 	/**
 	 * 
 	 */
-	public static void calAllRoles() {
+	public static void calAllRolesHotRes() {
 		for(int i = 0; i < ROLES.length; i++)
 			CalHotResources.calOneRole(ROLES[i]);
 	}
@@ -63,7 +63,7 @@ public class CalHotResources {
 			case "Nation Conditions":
 				CalHotResources.addOneRecord(country_times, doc);
 				break;
-			case "Pebook":
+			case "pebook":
 				CalHotResources.addOneRecord(pebook_times, doc);
 				break;
 			case "ieee":
@@ -110,6 +110,9 @@ public class CalHotResources {
 	public static void storeHotResources(String role, String res_type, Map<String, Integer> records) {
 		String collectionName = role + "_" + res_type + "_" + "times";
 		MongoCollection<Document> logs = MongoConn.getMongoCollection("silkRoad", collectionName);
+		
+		logs.drop(); // delete the old data
+		logs = MongoConn.getMongoCollection("silkRoad", collectionName);
 		
 		Document doc = null;
 		for(Entry<String, Integer> entry: records.entrySet()) {

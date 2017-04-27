@@ -27,10 +27,10 @@ public class CompleteHotResInfo {
 	private static final Connection MYSQLCONN = MySQLConn.getConn();
 	
 	public static void main(String[] args) {
-		// CompleteHotResInfo.deleteOldData();
-		
-		long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
+        
 		CompleteHotResInfo.completeAllHotResInfo();
+		
 		long end = System.currentTimeMillis();
 		System.out.println("Cost " + (end - start) / 1000 + " seconds!");
 	}
@@ -39,6 +39,8 @@ public class CompleteHotResInfo {
 	 * 
 	 */
 	public static void completeAllHotResInfo() {
+		CompleteHotResInfo.deleteOldData();
+		
 		for(String role : ROLES)
 		    for(String res_type : RESOURCE_TYPE)
 			    CompleteHotResInfo.completeOneRoleOneTypeResInfo(role, res_type);

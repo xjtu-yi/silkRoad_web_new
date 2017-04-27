@@ -30,7 +30,7 @@ public class ClassifyLogsByRole {
 		System.out.println("Cost " + (cost / 1000) + " seconds!");
 	}
 	
-	private static void classifyLogsByRole() {
+	public static void classifyLogsByRole() {
 		MongoCollection<Document> logs = MongoConn.getMongoCollection(DATABASENAME, "logs");
 		
 		List<Document> studentDocs = new ArrayList<Document>();
@@ -77,6 +77,10 @@ public class ClassifyLogsByRole {
 	 */
 	public static void storeMongo(String collectionName, List<Document> documents) {
 		MongoCollection<Document> collection = MongoConn.getMongoCollection(DATABASENAME, collectionName);
+		
+		collection.drop(); // delete the old data
+		collection = MongoConn.getMongoCollection(DATABASENAME, collectionName);
+		
 		if(documents.size() > 0) {
 		    collection.insertMany(documents);
 		}

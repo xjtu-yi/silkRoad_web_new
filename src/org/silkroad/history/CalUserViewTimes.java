@@ -34,20 +34,21 @@ public class CalUserViewTimes {
 	private static final String[] RESOURCE_TYPE =  {"company", "country", "pebook", "regulation", "uansr", "uebook"};
 	
 	public static void main(String[] args) {
-		CalUserViewTimes.processAllUsers();
+		CalUserViewTimes.calAllUsersViewedTimes();
 	}
 	
 	/**
 	 * 
 	 */
-	public static void processAllUsers() {
-		/*String collectionName = "user";
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);*/
+	public static void calAllUsersViewedTimes() {
+		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", "user_viewed_times");
+		collection.drop(); // delete the old data
+		collection = MongoConn.getMongoCollection("silkRoad", "user_viewed_times");
 		
 		for(Integer i = 100; i < 1000; i++) {
 			CalUserViewTimes.storeUserViewedTimes(i.toString());
 		}
-	}
+	} 
 	
 	/**
 	 * Store one user's view times into MongoDB silkRoad.userViewedTimes
@@ -58,6 +59,7 @@ public class CalUserViewTimes {
 		int[] timesArr = null;;
 		
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		
 		timesArr = CalUserViewTimes.calUserViewedTimesAll(user_id);
 		
 		Document doc = new Document();
