@@ -43,7 +43,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>rec</servlet-name>
-    <url-pattern>/rec</url-pattern>
+    <url-pattern>/recommend</url-pattern>
   </servlet-mapping>
   
 </web-app>
