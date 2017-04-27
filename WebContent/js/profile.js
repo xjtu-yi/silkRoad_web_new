@@ -8,7 +8,7 @@ $(document).ready(function () {
     var total = 0;
     
     $.ajax({
-        url:"http://202.117.15.155:8080/silkRoad/userInfo?user_id=802",
+        url:"userInfo?user_id=802",
         async:false,
         success:function (jsonData) {
             var tem = jsonData;

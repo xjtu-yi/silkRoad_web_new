@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url: "http://202.117.15.155:8080/silkRoad/hotRes?user_type=engineer",
+        url: "hotRes?user_type=engineer",
     	// url: "http://123.206.87.123:8080/silkRoad2/news_info",
         async: false,
         success: function (jsonData) {
