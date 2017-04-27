@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2016/11/21.
+ * http://202.117.15.155:8080/silkRoad/profiles.html
  */
 
 function toPercent(point){
@@ -9,36 +9,39 @@ function toPercent(point){
 }
 
 $(document).ready(function () {
-    var data = [];
-    var datal= [];
-
+    var percents = [];
+    var times = [];
+    var total = 0;
+    
     $.ajax({
-        //url:"http://202.117.15.155:8080/silkRoad2/user_info",
-        url:"http://123.206.87.123:8080/silkRoad2/user_info",
+        url:"http://202.117.15.155:8080/silkRoad/userInfo?user_id=103",
+        // url:"http://123.206.87.123:8080/silkRoad2/user_info",
         async:false,
         success:function (jsonData) {
             for (var i = 0; i < jsonData.length; i++) {
-                var t =jsonData[i].res_type;
-                var total=t.News + t.Paper+t.Ebook+t.Patent +t.Conference;
-                datal=[t.News/total,t.Paper/total,t.Ebook/total,t.Patent/total,t.Conference/total];
-
-                data=[{name:"News",value:t.News},{name:"Paper",value:t.Paper},
-                    {name:"Ebook",value:t.Ebook},{name:"Patent",value:t.Patent},{name:"Conference",value:t.Conference}];
-
+                var tem = jsonData[i];
+                
+                total = tem.company + tem.country + tem.pebook + tem.regulation + tem.uansr + tem.uebook;
+                
+                percents = [tem.company/total, tem.country/total, tem.pebook/total, tem.regulation/total, 
+                    tem.uansr/total, tem.uebook/total];
+                
+                times=[{name:"company",value:tem.company}, {name:"country",value:tem.country},
+                    {name:"pebook",value:tem.pebook}, {name:"regulation",value:tem.regulation},
+                    {name:"uansr",value:tem.uansr}, {name:"uebook",value:tem.uebook}];
             }
         }
     });
-    // alert(toPercent(datal[0]));
-    document.getElementById('news').innerHTML=toPercent(datal[0]);
-    document.getElementById('paper').innerHTML=toPercent(datal[1]);
-    document.getElementById('ebook').innerHTML=toPercent(datal[2]);
-    document.getElementById('patent').innerHTML=toPercent(datal[3]);
-    document.getElementById('conference').innerHTML=toPercent(datal[4]);
+    
+    alert(percents[0]);
+    document.getElementById('company').innerHTML = toPercent(percents[0]);
+    document.getElementById('country').innerHTML = toPercent(percents[1]);
+    document.getElementById('pebook').innerHTML = toPercent(percents[2]);
+    document.getElementById('regulation').innerHTML = toPercent(percents[3]);
+    document.getElementById('uansr').innerHTML = toPercent(percents[4]);
+    document.getElementById('uebook').innerHTML = toPercent(percents[5]);
 
-
-
-
-    require.config({
+    /*require.config({
         paths: {
             echarts: './build/dist/'
         }
@@ -47,16 +50,15 @@ $(document).ready(function () {
         [
             'echarts',
             'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
-            'echarts/chart/pie' // 使用柱状图就加载line模块，按需加载
+            'echarts/chart/pie'
         ],
         function (ec) {
             // 基于准备好的dom，初始化echarts图表
-            // var myChart = ec.init(document.getElementById('pie'));
-            var myChart2 = ec.init(document.getElementById('bar'));
+            var myChart = ec.init(document.getElementById('bar'));
             option = {
                 title: {
                     text: 'Number of visiting the type of sources',
-                    //    subtext: '纯属虚构',
+                    // subtext: '纯属虚构',
                     x: 'right'
                 },
                 tooltip: {
@@ -75,21 +77,12 @@ $(document).ready(function () {
                         type: 'pie',
                         radius: '55%',
                         center: ['50%', "60%"],
-                        // itemStyle: {
-                        //     normal: {
-                        //         label: {
-                        //             show: true, position: 'outer',
-                        //             formatter: '{b} :{d}%'
-                        //         }
-                        //     }
-                        // },
                         data:data
                     }
                 ]
             };
 
-            // var dataAxis = ['1', 'ffqweqf', '3', '4', '5'];
-            var dataAxis = ['News', 'paper', 'Ebook', 'Patent', 'Conf..'];
+            var dataAxis = ['Company', 'Country', 'Pebook', 'IEEE', 'History and Culture'];
             var data4 = [];
             for (var i = 0;i<data.length;i++){
                 data4[i]=data[i].value;
@@ -141,30 +134,14 @@ $(document).ready(function () {
                 ]
             };
 
-// Enable data zoom when user click bar.
-            var zoomSize = 6;
-            // myChart.on('click', function (params) {
-            //     console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
-            //     myChart.dispatchAction({
-            //         type: 'dataZoom',
-            //         startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-            //         endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
-            //     });
-            // });
-
-            // myChart.setOption(option);
             myChart2.setOption(option2);
-
-            // myChart.connect(myChart2);
-            // myChart2.connect(myChart);
 
             setTimeout(function () {
                 window.onresize = function () {
-                    // myChart.resize();
                     myChart2.resize();
                 }
             }, 200)
 
         }
-    );
+    );*/
 });
