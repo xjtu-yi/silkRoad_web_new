@@ -35,15 +35,13 @@ public class GetRec {
 		
 		while (rs.next()) {
 			res_ids = rs.getString(1);
-			System.out.println(res_ids);
+			// System.out.println(res_ids);
 		}
 		Gson gson = new Gson();
 		List<String> idlist = new ArrayList<String>();
 
 		idlist = gson.fromJson(res_ids, idlist.getClass());
-		for (String string : idlist) {
-			System.err.println("id"+string);
-		}
+		
 		
 		switch (res_type_id) {
 		case 1:
@@ -102,6 +100,8 @@ public class GetRec {
 		rs = statement.executeQuery(sql);
 		while (rs.next()) {
 			Company company = new Company();
+			company.setRes_id(res_id);
+			company.setRes_type("company");
 			company.setName(rs.getString(1));
 			company.setSummary(rs.getString(2));
 			company.setLocation(rs.getString(3));
@@ -126,6 +126,8 @@ public class GetRec {
 		rs = statement.executeQuery(sql);
 		while (rs.next()) {
 			Country country = new Country();
+			country.setRes_id(res_id);
+			country.setRes_type("country");
 			country.setTitle(rs.getString(1));
 			country.setSummary(rs.getString(2));
 			country.setPub_place(rs.getString(3));
@@ -143,19 +145,19 @@ public class GetRec {
 		PreparedStatement statement = null;
 		ResultSet rs = null;
 
-		sql = "select author, title, year, doi, url, summary from " + tableName + " where id=\"" + res_id + "\"";
+		sql = "select  title, doi, summary,text_url from " + tableName + " where id=\"" + res_id + "\"";
 		statement = MYSQLCONN.prepareStatement(sql);
 		rs = statement.executeQuery(sql);
 
 		// complete one Document
 		while (rs.next()) {
 			PeBook peBook = new PeBook();
-			peBook.setAuthor(rs.getString(1));
-			peBook.setTitle(rs.getString(2));
-			peBook.setYear(rs.getString(3));
-			peBook.setDoi(rs.getString(4));
-			peBook.setUrl(rs.getString(5));
-			peBook.setSummary(rs.getString(6));
+			peBook.setRes_id(res_id);
+			peBook.setRes_type("pebook");
+			peBook.setTitle(rs.getString(1));
+			peBook.setDoi(rs.getString(2));
+			peBook.setSummary(rs.getString(3));
+			peBook.setUrl(rs.getString(4));
 			return peBook;
 		}
 		return null;
@@ -176,6 +178,8 @@ public class GetRec {
 
 		while (rs.next()) {
 			Regulation regulation = new Regulation();
+			regulation.setRes_id(res_id);
+			regulation.setRes_type("regulation");
 			regulation.setDoi(rs.getString(1));
 			regulation.setUrl(rs.getString(2));
 			regulation.setTitle(rs.getString(3));
@@ -201,6 +205,8 @@ public class GetRec {
 		
 		while (rs.next()) {
 			UeBook ueBook = new UeBook();
+			ueBook.setRes_id(res_id);
+			ueBook.setRes_type("uebook");
 			ueBook.setAuthor(rs.getString(1));
 			ueBook.setTitle(rs.getString(2));
 			ueBook.setYear(rs.getString(3));

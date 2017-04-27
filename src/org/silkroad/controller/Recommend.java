@@ -1,6 +1,9 @@
 package org.silkroad.controller;
 
+import static com.mongodb.client.model.Filters.eq;
+
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,7 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.bson.Document;
 import org.silkroad.recommend.GetRec;
+import org.silkroad.utility.MongoConn;
+import org.silkroad.utility.MySQLConn;
+
+import com.mongodb.client.MongoCollection;
+import com.sun.beans.editors.IntegerEditor;
 
 /**
  * Servlet implementation class Recommend
@@ -16,16 +25,25 @@ import org.silkroad.recommend.GetRec;
 @WebServlet("/Recommend")
 public class Recommend extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Recommend() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String user_id = request.getParameter("user_id");
+		String user_id = request.getParameter("user_id");
+		int type = Integer.parseInt(request.getParameter("type"));
 		GetRec getRec = new GetRec();
 		String json=null;
 		try {
-			json = getRec.getRec(6, "200");
+			json = getRec.getRec(type, user_id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
