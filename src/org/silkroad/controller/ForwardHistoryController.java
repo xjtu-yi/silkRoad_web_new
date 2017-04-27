@@ -1,4 +1,4 @@
-package org.silkroad.controller.jump;
+package org.silkroad.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class HistoryForward
  */
 @WebServlet("/HistoryForward")
-public class HistoryForward extends HttpServlet {
+public class ForwardHistoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
