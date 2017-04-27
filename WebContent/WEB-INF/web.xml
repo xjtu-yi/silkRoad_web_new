@@ -9,6 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>userInfo</servlet-name>
     <servlet-class>org.silkroad.controller.UserProfiles</servlet-class>
@@ -17,6 +18,7 @@
     <servlet-name>userInfo</servlet-name>
     <url-pattern>/userInfo</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>userHistory</servlet-name>
     <servlet-class>org.silkroad.controller.UserViewedHistory</servlet-class>
@@ -25,62 +27,23 @@
     <servlet-name>userHistory</servlet-name>
     <url-pattern>/userHistory</url-pattern>
   </servlet-mapping>
+  
   <servlet>
-    <servlet-name>hotCompany</servlet-name>
-    <servlet-class>org.silkroad.controller.hot.HotCompany</servlet-class>
+    <servlet-name>forwardHistory</servlet-name>
+    <servlet-class>org.silkroad.controller.ForwardHistoryController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>hotCompany</servlet-name>
-    <url-pattern>/hotCompany</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>hotCountry</servlet-name>
-    <servlet-class>org.silkroad.controller.hot.HotCountry</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hotCountry</servlet-name>
-    <url-pattern>/hotCountry</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>hotPebook</servlet-name>
-    <servlet-class>org.silkroad.controller.hot.HotPebook</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hotPebook</servlet-name>
-    <url-pattern>/hotPebook</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>hotRegulation</servlet-name>
-    <servlet-class>org.silkroad.controller.hot.HotRegulation</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hotRegulation</servlet-name>
-    <url-pattern>/hotRegulation</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>hotUansr</servlet-name>
-    <servlet-class>org.silkroad.controller.hot.HotUansr</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hotUansr</servlet-name>
-    <url-pattern>/hotUansr</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>hotUebook</servlet-name>
-    <servlet-class>org.silkroad.controller.hot.HotUebook</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>hotUebook</servlet-name>
-    <url-pattern>/hotUebook</url-pattern>
+    <servlet-name>forwardHistory</servlet-name>
+    <url-pattern>/forwardHistory</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>historyForward</servlet-name>
-    <servlet-class>org.silkroad.controller.jump.HistoryForward</servlet-class>
+    <servlet-name>hotRes</servlet-name>
+    <servlet-class>org.silkroad.controller.HotResController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>historyForward</servlet-name>
-    <url-pattern>/historyForward</url-pattern>
+    <servlet-name>hotRes</servlet-name>
+    <url-pattern>/hotRes</url-pattern>
   </servlet-mapping>
   
   <servlet>
