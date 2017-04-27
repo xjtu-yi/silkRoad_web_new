@@ -1,4 +1,4 @@
-package org.silkroad.controller.hot;
+package org.silkroad.abandon;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,11 +20,11 @@ import com.mongodb.client.MongoCollection;
 /**
 * @author : wuke
 * @date   : 2017年4月22日下午6:22:45
-* Title   : HotUebook
-* Description : 
+* Title   : HotCompany
+* Description : org.silkroad.controller.hot
 */
-@WebServlet("/HotUebook")
-public class HotUebook extends HttpServlet {
+@WebServlet("/HotCompany")
+public class HotCompany extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -45,7 +45,7 @@ public class HotUebook extends HttpServlet {
 		String user_type = request.getParameter("user_type");
 		
 		// Query TOP 5 Documents from MongoDB
-		String collectionName = user_type + "_uebook_times"; 
+		String collectionName = user_type + "_company_times"; 
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
 		
 		BasicDBObject sort = new BasicDBObject();
