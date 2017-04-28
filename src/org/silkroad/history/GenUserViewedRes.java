@@ -109,23 +109,24 @@ public class GenUserViewedRes {
 	 * @param user_id
 	 * @param records
 	 */
-	private static void addOneRecord(String res_id, String user_id, 
-			HashMap<String, HashMap<String, Integer>> records) {
+	private static void addOneRecord(String res_id, String user_id, HashMap<String, HashMap<String, Integer>> records) {
 		HashMap<String, Integer> tem;
-		if(records.containsKey(user_id)) { // old user
-			tem = records.get(user_id);
-			if(tem.containsKey(res_id)) { // viewd resource
-				tem.put(res_id, tem.get(res_id) + 1); // view times plus one				
-			} else {
-				tem.put(res_id, 1); // add new resource
+		if((user_id != null) && (res_id != null)) {
+			if(records.containsKey(user_id)) { // old user
+				tem = records.get(user_id);
+				if(tem.containsKey(res_id)) { // viewd resource
+					tem.put(res_id, tem.get(res_id) + 1); // view times plus one				
+				} else { // new resource
+					tem.put(res_id, 1); 
+				}
+				
+				records.put(user_id, tem); // cover the old record
+			} else { // new user
+				tem = new HashMap<String, Integer>();
+				tem.put(res_id, 1);
+				
+				records.put(user_id, tem); // insert the new record
 			}
-			
-			records.put(user_id, tem); // cover the old record
-		} else { // new user
-			tem = new HashMap<String, Integer>();
-			tem.put(res_id, 1);
-			
-			records.put(user_id, tem); // insert the new record
 		}
 	}
 	
