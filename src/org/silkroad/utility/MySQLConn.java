@@ -18,7 +18,10 @@ public class MySQLConn {
 		String driver = "com.mysql.jdbc.Driver";
 		// String url = "jdbc:mysql://localhost:3306/silkroadresource_new";
 		String url = "jdbc:mysql://localhost:3306/silkroadresource_new?characterEncoding=utf8&useSSL=false";
+		// String url = "jdbc:mysql://personalize-mysql:3306/silkroad_personalize?characterEncoding=utf8&useSSL=false";
+		//String username = "personalize";
 		String username = "root";
+		//String password = "P0$sW0rD$Sp";
 		String password = "1234";
 		Connection conn = null;
 		
