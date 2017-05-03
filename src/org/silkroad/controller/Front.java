@@ -20,7 +20,6 @@ public class Front extends HttpServlet {
      */
     public Front() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
