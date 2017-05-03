@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/page.css">
     <link rel="stylesheet" type="text/css" href="resource/material/style.css">
     <link rel="stylesheet" type="text/css" href="css/history.css">
+    <link rel="shortcut icon" href="./resource/images/favicon.ico" />
     
     <script type="text/javascript" src="resource/material/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="resource/material/ddsmoothmenu.js"></script>
@@ -163,25 +164,13 @@
             </div>
             <div class="head_d">
                 <div id="smoothmenu1" class="ddsmoothmenu">                    
-    			<ul>
-    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/index.htm">Home</a></li>
-    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/News.htm">News</a></li>
-    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/Symposium.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1294">Symposium</a></li>
-    			  <li style="height:35px;width:228px;z-index: 20;"><a href="#" class="">Characteristic Database</a>
-    			    <ul class="ul_4" style="top: 35px; visibility: visible; margin-left:550px;; width: 1140px; display: none;">
-    			      <li><a href="http://ikcest.xjtu.edu.cn/culture-list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1472">History And Culture </a></li>
-    			       <li style="width:10px;color:#00adef;">|</li>
-    			      <li><a href="http://ikcest.xjtu.edu.cn/education.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1473">Education Of Science</a></li>
-    			       <li style="width:10px;color:#00adef;">|</li>
-    			      <li><a href="http://ikcest.xjtu.edu.cn/state.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1474">Nation Conditions</a></li>
-    			       <li style="width:10px;color:#00adef;">|</li>
-    			      <li><a href="http://ikcest.xjtu.edu.cn/gy_list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1475">Fortune Global 500</a></li>
-    			       <li style="width:10px;color:#00adef;">|</li>
-    			      <li><a href="http://ikcest.xjtu.edu.cn/ieee.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1476">IEEE</a></li>
-    			    </ul>
-    			  </li>
-    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/About_US2.htm">About US</a></li>
-    			</ul>                
+	    			<ul>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/index.jsp">Home</a></li>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/News.htm">News</a></li>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/Symposium.jsp?urltype=tree.TreeTempUrl&wbtreeid=1294">Symposium</a></li>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/uansr_dt_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1014">UASR</a></li>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/About_US2.htm">About US</a></li>
+	    			</ul>                
                 </div>
                 <script type="text/javascript">
                     ddsmoothmenu.init({
