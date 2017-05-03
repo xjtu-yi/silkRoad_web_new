@@ -1,6 +1,8 @@
 package org.silkroad.utility;
 
+import java.io.FileInputStream;
 import java.util.Arrays;
+import java.util.Properties;
 
 import org.bson.Document;
 
@@ -18,8 +20,6 @@ import com.mongodb.client.MongoDatabase;
  */
 public class MongoConn {
 	private static MongoClient MONGOCLIENT = null;
-	private static String USERNAME = "silkRoad";
-	private static String PASSWORD = "silkRoad123";
 
 	/**
 	 * Return MongoCollection
@@ -44,20 +44,19 @@ public class MongoConn {
 		mongoDatabase = MONGOCLIENT.getDatabase(databaseName);
 		mongoCollection = mongoDatabase.getCollection(collectionName);
 
-		// System.out.println("Successfully get collection " +
-		// mongodbCollectionName + "!");
 		return mongoCollection;
 	}
 
 	/**
 	 * Get MongoClient with authentication
 	 */
-	private static void initMongoClient() {
+	private static void initMongoClient() {		
 		ServerAddress ip = new ServerAddress("localhost", 27017);
 		String databaseName = "silkRoad";
-		try {
-			MongoCredential credential = MongoCredential.createCredential(USERNAME, databaseName,
-					PASSWORD.toCharArray());
+		String username = "silkRoad";
+		String password = "silkRoad123";
+		try {			
+			MongoCredential credential = MongoCredential.createCredential(username, databaseName, password.toCharArray());
 			MONGOCLIENT = new MongoClient(ip, Arrays.asList(credential));
 		} catch (Exception e) {
 			e.printStackTrace();
