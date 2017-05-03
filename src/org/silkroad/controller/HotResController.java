@@ -43,8 +43,20 @@ public class HotResController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get userId and user_type
-		String user_type = request.getParameter("user_type");
-				
+		String user_type = null;
+		String user_id = (String) request.getSession().getAttribute("user_id");
+		switch(user_id) {
+		case "453":
+			user_type = "student";
+			break;
+		case "101":
+			user_type = "engineer";
+			break;
+		case "104":
+			user_type = "scholar";
+			break;
+		}
+		
 		// Query from MongoDB
 		String collectionName = user_type + "_hot_complete"; 
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
