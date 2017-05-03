@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
-        url: "hotRes?user_type=engineer",
-    	// url: "http://123.206.87.123:8080/silkRoad2/news_info",
+        // url: "hotRes?user_type=engineer",
+    	url: "hotRes",
         async: false,
         success: function (jsonData) {
         	
