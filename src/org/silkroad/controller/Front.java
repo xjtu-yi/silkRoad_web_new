@@ -14,13 +14,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Front")
 public class Front extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Front() {
-        super();
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
