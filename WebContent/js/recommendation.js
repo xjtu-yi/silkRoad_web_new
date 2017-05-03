@@ -1,7 +1,7 @@
 $(document).ready(function () {
-	var user_id =102;
+	// var user_id =102;
     $.ajax({
-        url: "recommend?type=1&user_id="+user_id,
+        url: "recommend?type=1",
         async: false,
         success: function (jsonData) {
         	
@@ -32,7 +32,7 @@ $(document).ready(function () {
     
     
     $.ajax({
-        url: "recommend?type=2&user_id="+user_id,
+        url: "recommend?type=2",
     	// url: "http://123.206.87.123:8080/silkRoad2/news_info",
         async: false,
         success: function (jsonData) {
@@ -64,7 +64,7 @@ $(document).ready(function () {
     });
     
     $.ajax({
-        url: "recommend?type=3&user_id="+user_id,
+        url: "recommend?type=3",
     	// url: "http://123.206.87.123:8080/silkRoad2/news_info",
         async: false,
         success: function (jsonData) {
@@ -94,7 +94,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        url: "recommend?type=4&user_id="+user_id,
+        url: "recommend?type=4",
     	// url: "http://123.206.87.123:8080/silkRoad2/news_info",
         async: false,
         success: function (jsonData) {
@@ -125,7 +125,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        url: "recommend?type=5&user_id="+user_id,
+        url: "recommend?type=5",
     	// url: "http://123.206.87.123:8080/silkRoad2/news_info",
         async: false,
         success: function (jsonData) {
@@ -156,7 +156,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        url: "recommend?type=6&user_id="+user_id,
+        url: "recommend?type=6",
         async: false,
         success: function (jsonData) {
         	
