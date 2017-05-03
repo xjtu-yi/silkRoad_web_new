@@ -23,13 +23,14 @@ public class ForwardHistoryController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("html/text;charset=utf-8");
 		
-		String user_id = request.getParameter("user_id");
+		// String user_id = request.getParameter("user_id");
+		String user_id = (String) request.getSession().getAttribute("user_id");
 		String res_type = request.getParameter("res_type");
 		
 		request.setAttribute("user_id", user_id);
 		request.setAttribute("res_type", res_type);
 		
-		// System.out.println("HistoryForward " + user_id);
+		// System.out.println("ForwardHistoryController " + user_id);
 		
 		switch(res_type) {
 		case "company" :
