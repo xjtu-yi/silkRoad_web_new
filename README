@@ -2,5 +2,8 @@
   * 热门资源展示（六大数据库：工业经济、国情咨文、人口、政策法规、教育科技、历史文化）
   * 个人刻画
   * 资源推荐
-# 网址如下： 
-  * http://123.206.87.123:8080/silkRoad2/profiles.html
+# 网址如下：
+  * http://personalize.ikcest.xjtu.io:8080/silkRoad/front?type=1    代表学生
+  * http://personalize.ikcest.xjtu.io:8080/silkRoad/front?type=2    代表工程师
+  * http://personalize.ikcest.xjtu.io:8080/silkRoad/front?type=3    代表学者
+  * http://personalize.ikcest.xjtu.io:8080/silkRoad/front?type=4    代表管理员
