@@ -31,7 +31,8 @@ public class UserProfiles extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Get userId
-		String user_id = request.getParameter("user_id");
+		// String user_id = request.getParameter("user_id");
+		String user_id = (String) request.getSession().getAttribute("user_id");
 		
 		// Query from MongoDB
 		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", "user_viewed_times");

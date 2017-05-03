@@ -8,7 +8,8 @@ $(document).ready(function () {
     var total = 0;
     
     $.ajax({
-        url:"userInfo?user_id=802",
+        // url:"userInfo?user_id=802",
+    	url:"userInfo",
         async:false,
         success:function (jsonData) {
             var tem = jsonData;
