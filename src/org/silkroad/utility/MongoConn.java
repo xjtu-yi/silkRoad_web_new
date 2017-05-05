@@ -1,8 +1,6 @@
 package org.silkroad.utility;
 
-import java.io.FileInputStream;
 import java.util.Arrays;
-import java.util.Properties;
 
 import org.bson.Document;
 
@@ -43,7 +41,7 @@ public class MongoConn {
 		}
 		mongoDatabase = MONGOCLIENT.getDatabase(databaseName);
 		mongoCollection = mongoDatabase.getCollection(collectionName);
-
+		
 		return mongoCollection;
 	}
 
@@ -68,8 +66,8 @@ public class MongoConn {
 	 */
 	public static void initMongoClientNoAuthentication() {
 		try {
-			MONGOCLIENT = new MongoClient("localhost", 27017);
-			// MONGOCLIENT = new MongoClient("personalize-mongo", 27017);
+			// MONGOCLIENT = new MongoClient("localhost", 27017);
+			MONGOCLIENT = new MongoClient("personalize-mongo", 27017);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
