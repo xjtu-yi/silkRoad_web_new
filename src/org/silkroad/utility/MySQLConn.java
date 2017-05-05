@@ -17,14 +17,14 @@ public class MySQLConn {
 	public static Connection getConn() {
 		Connection conn = null;
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/silkroadresource_new?characterEncoding=utf8&useSSL=false";
+		String url = "jdbc:mysql://localhost:3306/silkroadresource_new?characterEncoding=utf8&useSSL=false&autoReconnect=true";
 		String username = "root";
 		String password = "1234";
-		try {
-			/*url = "jdbc:mysql://personalize-mysql:3306/silkroad_personalize?characterEncoding=utf8&useSSL=false";
-			username = "personalize";
-			password = "P0$sW0rD$Sp";*/
-		    
+		
+		/*url = "jdbc:mysql://personalize-mysql:3306/silkroad_personalize?characterEncoding=utf8&useSSL=false";
+		username = "personalize";
+		password = "P0$sW0rD$Sp";*/
+		try {		    
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, username, password);
 		} catch (Exception e) {
