@@ -17,9 +17,9 @@ import com.google.gson.Gson;
 
 public class GetRec {
 
-	private static final Connection MYSQLCONN = MySQLConn.getConn();
 
 	public static String getRec(Integer res_type_id, String user_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
 		String tableName = "rec";
 
 		String sql = null;
@@ -41,7 +41,9 @@ public class GetRec {
 		List<String> idlist = new ArrayList<String>();
 
 		idlist = gson.fromJson(res_ids, idlist.getClass());
-		
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		
 		switch (res_type_id) {
 		case 1:
@@ -84,11 +86,12 @@ public class GetRec {
 			break;
 		}
 		
-
+		
 		return null;
 	}
 
 	public static Company getCompanies(String res_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
 		String sql = null;
 		String tableName = "companies_repo";
 		PreparedStatement statement = null;
@@ -110,11 +113,16 @@ public class GetRec {
 			company.setRankings(rs.getString(6));
 			return company;
 		}
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		return null;
 
 	}
 
 	public static Country getCountries(String res_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
+
 		String sql = null;
 		String tableName = "countries_repo";
 		PreparedStatement statement = null;
@@ -136,10 +144,15 @@ public class GetRec {
 			country.setPalce(rs.getString(6));
 			return country;
 		}
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		return null;
 	}
 
 	public static PeBook getPebook(String res_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
+
 		String sql = null;
 		String tableName = "pebook_repo";
 		PreparedStatement statement = null;
@@ -160,10 +173,15 @@ public class GetRec {
 			peBook.setUrl(rs.getString(4));
 			return peBook;
 		}
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		return null;
 	}
 
 	public static Regulation getRegulation(String res_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
+
 		String sql = null;
 		String tableName = "regulation_repo";
 		PreparedStatement statement = null;
@@ -190,10 +208,15 @@ public class GetRec {
 			regulation.setFull_text_url(rs.getString(8));
 			return regulation;
 		}
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		return null;
 	}
 
 	public static UeBook getUebook(String res_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
+
 		String sql = null;
 		String tableName = "uebook_repo";
 		PreparedStatement statement = null;
@@ -216,10 +239,15 @@ public class GetRec {
 			ueBook.setNation(rs.getString(7));
 			return ueBook;
 		}
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		return null;
 	}
 
 	public static Uansr getUansr(String res_id) throws Exception {
+		Connection MYSQLCONN = MySQLConn.getConn();
+
 		String sql = null;
 		String tableName = "uansr_repo";
 		PreparedStatement statement = null;
@@ -239,6 +267,9 @@ public class GetRec {
 			uansr.setSummary(rs.getString(6));
 			return uansr;
 		}
+		rs.close();
+		statement.close();
+		MYSQLCONN.close();
 		return null;
 	}
 }
