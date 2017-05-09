@@ -29,7 +29,7 @@ public class Front extends HttpServlet {
         String type = request.getParameter("type");
         
         if(type.equals("4")) // 
-        	response.sendRedirect("http://personalize.ikcest.xjtu.io:8080/silkAdmin/index.html");
+        	response.sendRedirect("http://personalize.silkroadst.ikcest.org/silkAdmin/index.html");
         else {
 			String user_id = null;
 			switch(type) {
