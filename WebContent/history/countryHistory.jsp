@@ -166,10 +166,10 @@
                 <div id="smoothmenu1" class="ddsmoothmenu">                    
 	    			<ul>
 	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/index.jsp">Home</a></li>
-	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/News.htm">News</a></li>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1297">News</a></li>
 	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/Symposium.jsp?urltype=tree.TreeTempUrl&wbtreeid=1294">Symposium</a></li>
 	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/uansr_dt_list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1014">UASR</a></li>
-	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/About_US2.htm">About US</a></li>
+	    			  <li style="height:35px;width:228px;"><a href="http://ikcest.xjtu.edu.cn/page.jsp?urltype=tree.TreeTempUrl&wbtreeid=1298">About US</a></li>
 	    			</ul>               
                 </div>
                 <script type="text/javascript">
