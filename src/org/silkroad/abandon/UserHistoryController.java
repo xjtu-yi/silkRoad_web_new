@@ -21,7 +21,7 @@ import com.mongodb.client.MongoCollection;
 
 /**
  * @author : wuke
- * @date : 2017年4月23日下午3:30:06 
+ * @date : 20170423 15:30:06 
  * Title : UserViewedHistory 
  * Description : // package org.silkroad.controller;
  */
@@ -51,7 +51,7 @@ public class UserHistoryController extends HttpServlet {
 
 		// Query from MongoDB
 		String collectionName = "user_viewed_" + res_type + "_complete";
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		BasicDBObject sort = new BasicDBObject();
 		sort.put("times", -1); // descending by "times"

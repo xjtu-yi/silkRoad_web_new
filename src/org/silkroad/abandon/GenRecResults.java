@@ -23,9 +23,6 @@ import com.mongodb.client.MongoCollection;
  *   then store the result into Mongodb's collection recResult
  */
 public class GenRecResults {
-	/**
-	 * test    模拟生成推荐结果
-	 * */
 	public static void main(String[] args) {
 		String user_id = "admin";
 		ArrayList<Resource> recResources = new ArrayList<Resource>();
@@ -89,9 +86,8 @@ public class GenRecResults {
 		Connection mysqlConn = MySQLConn.getConn();
 		
 		// get mongodb collection recResult
-		String databaseName = "silkRoad";
 		String mongoCollectionName = "recResult";
-		MongoCollection<Document> mongoCollection = MongoConn.getMongoCollection(databaseName, mongoCollectionName);
+		MongoCollection<Document> mongoCollection = MongoConn.getMongoCollection(mongoCollectionName);
 		
 		// store the complete infotmation of the resource
 		Resource recResource = null;

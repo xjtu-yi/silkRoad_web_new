@@ -14,9 +14,7 @@ import com.mongodb.client.MongoCursor;
 import org.silkroad.utility.MongoConn;
 
 public class ClassifyLogsByResType {
-	public static void main(String[] args) {
-		String databaseName = "logs";
-		
+	public static void main(String[] args) {		
 		// first time use, process all the logs
 		/*String collectionName = "items";
 		processManyDaysLogs(databaseName, collectionName);*/
@@ -25,28 +23,28 @@ public class ClassifyLogsByResType {
 		String dateStr = "";
 		dateStr = GetYesterdayDate.getYesterDayDate();
 		String collectionName = "logs";
-		classifyOneDayLogs(dateStr, databaseName, collectionName);
+		classifyOneDayLogs(dateStr, collectionName);
 	}
 	
 	// "logs" & "items"
 	static void processManyDaysLogs(String databaseName, String collectionName) {
-		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(databaseName, collectionName);
+		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(collectionName);
 		
 		MongoCursor<Document> cursor = logsCollection.find().iterator();
 		String dateStr = "";
 		while(cursor.hasNext()) {
 			dateStr = cursor.next().getString("date");
 			// "logs" & "logs"
-			classifyOneDayLogs(dateStr, databaseName, "logs");
+			classifyOneDayLogs(dateStr, "logs");
 		}
 	}
 	
 	/**
 	 * 
 	 */
-	static void classifyOneDayLogs(String dateStr, String databaseName, String collectionName) {
+	static void classifyOneDayLogs(String dateStr, String collectionName) {
 		// databaseName = "logs" & collectionName = "logs";
-		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(databaseName, collectionName);
+		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(collectionName);
 		
         /*
         Pattern pattern0 = Pattern.compile("^name$"); //ÍêÈ«Æ¥Åä    
@@ -141,21 +139,21 @@ public class ClassifyLogsByResType {
 		}
 		
 		// store all the ArrayList<Document> into MongoDB, totally 15
-		storeMongodb(databaseName, "newsLogs", newsDocuments);
-		storeMongodb(databaseName, "uansrLogs", uansrDocuments);
-		storeMongodb(databaseName, "ebookLogs", ebookDocuments);
-		storeMongodb(databaseName, "patentLogs", patentDocuments);
-		storeMongodb(databaseName, "dissertationLogs", dissertationDocuments);
-		storeMongodb(databaseName, "confLogs", confDocuments);
-		storeMongodb(databaseName, "courseLogs", courseDocuments);
-		storeMongodb(databaseName, "journalLogs", journalDocuments);
-		storeMongodb(databaseName, "oaLogs", oaDocuments);
-		storeMongodb(databaseName, "companyLogs", companyDocuments);
-		storeMongodb(databaseName, "countryLogs", countryDocuments);
-		storeMongodb(databaseName, "symposiumLogs", symposiumDocuments);
-		storeMongodb(databaseName, "educationLogs", educationDocuments);
-		storeMongodb(databaseName, "historyLogs", historyDocuments);
-		storeMongodb(databaseName, "policyLogs", policyDocuments);
+		storeMongodb("newsLogs", newsDocuments);
+		storeMongodb("uansrLogs", uansrDocuments);
+		storeMongodb("ebookLogs", ebookDocuments);
+		storeMongodb("patentLogs", patentDocuments);
+		storeMongodb("dissertationLogs", dissertationDocuments);
+		storeMongodb("confLogs", confDocuments);
+		storeMongodb("courseLogs", courseDocuments);
+		storeMongodb("journalLogs", journalDocuments);
+		storeMongodb("oaLogs", oaDocuments);
+		storeMongodb("companyLogs", companyDocuments);
+		storeMongodb("countryLogs", countryDocuments);
+		storeMongodb("symposiumLogs", symposiumDocuments);
+		storeMongodb("educationLogs", educationDocuments);
+		storeMongodb("historyLogs", historyDocuments);
+		storeMongodb("policyLogs", policyDocuments);
 		
 		System.out.println("Successfully classify and store " + dateStr + " logs!");
 	}
@@ -197,8 +195,8 @@ public class ClassifyLogsByResType {
 	/**
 	 * store MongoCollection into one specific Mongodb collection
 	 */
-	static void storeMongodb(String databaseName, String collectionName, ArrayList<Document> documents) {
-		MongoCollection<Document> collection = MongoConn.getMongoCollection(databaseName, collectionName);
+	static void storeMongodb(String collectionName, ArrayList<Document> documents) {
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		if(documents.size() > 0) {
 		    collection.insertMany(documents);
 		}

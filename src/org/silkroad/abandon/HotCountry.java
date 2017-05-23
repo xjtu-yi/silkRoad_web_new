@@ -19,7 +19,7 @@ import com.mongodb.client.MongoCollection;
 
 /**
 * @author : wuke
-* @date   : 2017年4月22日下午6:22:45
+* @date   : 20170422 18:22:45
 * Title   : HotCountry
 * Description : org.silkroad.controller.hot
 */
@@ -46,7 +46,7 @@ public class HotCountry extends HttpServlet {
 		
 		// Query TOP 5 Documents from MongoDB
 		String collectionName = user_type + "_country_times"; 
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		BasicDBObject sort = new BasicDBObject();
 		sort.put("times", -1); // -1, descending

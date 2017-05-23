@@ -38,9 +38,7 @@ public class ExtractSearchKeyWords {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		String databaseName = "logs";
-		
+	public static void main(String[] args) {		
 		// for first time using, to process all of the logs
 		/*String collectionName = "items";
 		extractManyDayLogs(databaseName, collectionName);*/
@@ -49,7 +47,7 @@ public class ExtractSearchKeyWords {
 		String dateStr = "";
 		dateStr = GetYesterdayDate.getYesterDayDate();
 		String collectionName = "logs";
-		extractOneDay(dateStr, databaseName, collectionName);
+		extractOneDay(dateStr, collectionName);
 	}
 	
 	/**
@@ -58,15 +56,15 @@ public class ExtractSearchKeyWords {
 	 * @param collectionName "items", an example is shown as below
 	 * {"_id" : "00147787837563752350c504f854aec9623f36bf73ce412000","date" : "2016-10-31"}
 	 */
-	public static void extractManyDayLogs(String databaseName, String collectionName) {
-		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(databaseName, collectionName);
+	public static void extractManyDayLogs(String collectionName) {
+		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(collectionName);
 		
 		MongoCursor<Document> cursor = logsCollection.find().iterator();
 		String dateStr = "";
 		while(cursor.hasNext()) {
 			dateStr = cursor.next().getString("date");
 			// "logs" & "logs"
-			extractOneDay(dateStr, databaseName, "logs");
+			extractOneDay(dateStr, "logs");
 		}
 	}
 	
@@ -76,9 +74,9 @@ public class ExtractSearchKeyWords {
 	 * @param databaseName
 	 * @param collectionName
 	 */
-	public static void extractOneDay(String dateStr, String databaseName, String collectionName) {
+	public static void extractOneDay(String dateStr, String collectionName) {
 		// databaseName = "logs" & collectionName = "logs";
-		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(databaseName, collectionName);
+		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection(collectionName);
 		
 		String regex = "^" + dateStr + ".*$";
 		Pattern pattern = Pattern.compile(regex);

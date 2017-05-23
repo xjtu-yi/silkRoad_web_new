@@ -8,16 +8,15 @@ import org.silkroad.utility.MongoConn;
 
 /**
  * @author: wuke 
- * @date  : 2016年11月18日 下午4:14:40
+ * @date  : 20161118 16:14:40
  * Title  : GenerateClickLogs
  * Description : logs(click_time, user_id, res_id, res_type, url)
- *               20161212 弃用
  */
 public class GenClickLogs {
 	public static void main(String[] args) {
 		try {
 			// 获取集合
-			MongoCollection<Document> collectionLogs = MongoConn.getMongoCollection("logs", "logs");
+			MongoCollection<Document> collectionLogs = MongoConn.getMongoCollection("logs");
 			System.out.println("Successfully get collection logs in database logs");
 			
 			// 插入文档
