@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 /**
 * @author : wuke
-* @date   : 2017年4月22日上午10:57:39
+* @date   : 20170422 10:57:39
 * Title   : ReadFile
 * Description : Read files which only contain one line
 */
