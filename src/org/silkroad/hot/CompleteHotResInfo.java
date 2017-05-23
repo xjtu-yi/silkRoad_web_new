@@ -17,7 +17,7 @@ import com.mongodb.client.MongoCursor;
 
 /**
 * @author : wuke
-* @date   : 2017年4月24日上午11:31:36
+* @date   : 20170424 11:31:36
 * Title   : CompleteHotResInfo
 * Description : Complete the information of hot resources
 */
@@ -54,7 +54,7 @@ public class CompleteHotResInfo {
 	private static void completeOneRoleOneTypeResInfo(String role, String res_type) {
 		//String collectionName = "user_viewed_" + res_type;
 		String collectionName = role + "_" + res_type + "_times";
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		BasicDBObject sort = new BasicDBObject();
 		sort.put("times", -1); // -1, descending
@@ -371,7 +371,7 @@ public class CompleteHotResInfo {
 	 */
 	private static void storeOneDoc(String role, Document doc) {
 		String collectionName = role + "_hot_complete";
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		collection.insertOne(doc);
 	}
@@ -384,7 +384,7 @@ public class CompleteHotResInfo {
 		MongoCollection<Document> collection = null;
 		for(String role : ROLES) {
 			collectionName = role + "_hot_complete";
-			collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+			collection = MongoConn.getMongoCollection(collectionName);
 			collection.drop();
 		}
 	}

@@ -25,7 +25,6 @@ public class Recommend extends HttpServlet {
 	 */
 	public Recommend() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -36,7 +35,7 @@ public class Recommend extends HttpServlet {
 			throws ServletException, IOException {
 		String user_id = (String) request.getSession().getAttribute("user_id");
 		int type = Integer.parseInt(request.getParameter("type"));
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", "recommendInfo");
+		MongoCollection<Document> collection = MongoConn.getMongoCollection("recommendInfo");
 		Document document = new Document();
 		document.put("user_id", user_id);
 		document.put("res_type_id", type);
@@ -56,7 +55,6 @@ public class Recommend extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -11,7 +11,7 @@ import com.mongodb.client.MongoCursor;
 
 /**
 * @author : wuke
-* @date   : 2017年4月22日下午9:03:06
+* @date   : 20170422 21:03:06
 * Title   : GenUserResources
 * Description : Generate user viewed resources, store in silkRoad.user_viewed_company, 
 *     silkRoad.user_viewed_country...
@@ -33,14 +33,14 @@ public class GenUserViewedRes {
 	}
 	
 	/**
-	 * 增量计算，待补充
+	 * TODO Need to add incremental computation
 	 */
 	static void readHistoryRecords() {
 		
 	}
 	
 	/**
-	 * 增量计算，待补充
+	 * TODO Need to add incremental computation
 	 */
 	static void readOneLogs() {
 		
@@ -54,7 +54,7 @@ public class GenUserViewedRes {
 		HashMap<String, HashMap<String, Integer>> uansr = new HashMap<String, HashMap<String, Integer>>();
 		HashMap<String, HashMap<String, Integer>> uebook = new HashMap<String, HashMap<String, Integer>>();
 		
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", "logs");
+		MongoCollection<Document> collection = MongoConn.getMongoCollection("logs");
 		MongoCursor<Document> cursor = collection.find().iterator();
 		
 		Document doc = null;
@@ -137,10 +137,10 @@ public class GenUserViewedRes {
 	 */
 	private static void storeUserViewedResources(HashMap<String, HashMap<String, Integer>> records, String res_type) {
 		String collectionName = "user_viewed_" + res_type;
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 	    collection.drop(); // delete the old data
-	    collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+	    collection = MongoConn.getMongoCollection(collectionName);
 	    
 		String user_id = null;
 		HashMap<String, Integer> tem = null;

@@ -12,7 +12,7 @@ import com.mongodb.client.MongoCursor;
 
 /**
 * @author : wuke
-* @date   : 2017年4月22日下午5:35:45
+* @date   : 20170422 17:35:45
 * Title   : CalHotResources
 * Description : 
 */
@@ -38,7 +38,7 @@ public class CalHotResources {
 	 */
 	public static void calOneRole(String role) {
 		String collectionName = role + "_logs";
-		MongoCollection<Document> logs = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> logs = MongoConn.getMongoCollection(collectionName);
 		
 		MongoCursor<Document> cursor = logs.find().iterator();
 		
@@ -109,10 +109,10 @@ public class CalHotResources {
 	 */
 	public static void storeHotResources(String role, String res_type, Map<String, Integer> records) {
 		String collectionName = role + "_" + res_type + "_" + "times";
-		MongoCollection<Document> logs = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> logs = MongoConn.getMongoCollection(collectionName);
 		
 		logs.drop(); // delete the old data
-		logs = MongoConn.getMongoCollection("silkRoad", collectionName);
+		logs = MongoConn.getMongoCollection(collectionName);
 		
 		Document doc = null;
 		for(Entry<String, Integer> entry: records.entrySet()) {

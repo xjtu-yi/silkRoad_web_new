@@ -15,7 +15,7 @@ import com.mongodb.client.MongoCollection;
 
 /**
 * @author : wuke
-* @date   : 2017年4月23日下午3:25:06
+* @date   : 20170423 15:25:06
 * Title   : UserProfiles
 * Description : 
 */
@@ -35,7 +35,7 @@ public class UserProfiles extends HttpServlet {
 		String user_id = (String) request.getSession().getAttribute("user_id");
 		
 		// Query from MongoDB
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", "user_viewed_times");
+		MongoCollection<Document> collection = MongoConn.getMongoCollection("user_viewed_times");
 		
 		Document doc = collection.find(eq("user_id", user_id)).first();
 		

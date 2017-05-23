@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
+import org.silkroad.utility.GetProperty;
 import org.silkroad.utility.MongoConn;
 import org.silkroad.utility.ReadFile;
 
@@ -13,23 +14,19 @@ import net.sf.json.JSONArray;
 
 /**
 * @author : wuke
-* @date   : 2017年4月21日下午10:24:46
+* @date   : 20170421 22:24:46
 * Title   : ProcessLogs
 * Description : 
 */
 public class ProcessLogs {
-	private static final String PATH = "E:\\data\\silkroad_logs.txt"; // the catalog where logs are stored
-
 	public static void main(String[] args) {
+		String logs_path = GetProperty.getPropertyByName("logs_path");
+		
 		long start = System.currentTimeMillis();
-		
-		List<Document> logsDocs = ProcessLogs.readLogs(PATH);
-		
+		List<Document> logsDocs = ProcessLogs.readLogs(logs_path);
 		long end1 = System.currentTimeMillis();
 		System.out.println("Cost " + (end1 - start)/1000 + " seconds"); // Cost 816 seconds
-		
 		ProcessLogs.storeLogs(logsDocs);
-		
 		long end2 = System.currentTimeMillis();
 		System.out.println("Cost " + (end2 - end1)/1000 + " seconds"); // Cost 4 seconds
 	}
@@ -63,10 +60,10 @@ public class ProcessLogs {
 	 * @param documents
 	 */
 	static void storeLogs(List<Document> documents) {
-		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection("silkRoad", "logs");
+		MongoCollection<Document> logsCollection = MongoConn.getMongoCollection("logs");
 		
 		logsCollection.drop(); // delete the old data
-		logsCollection = MongoConn.getMongoCollection("silkRoad", "logs");
+		logsCollection = MongoConn.getMongoCollection("logs");
 		
 		logsCollection.insertMany(documents);
 	}

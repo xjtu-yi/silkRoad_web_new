@@ -7,24 +7,25 @@ import org.silkroad.hot.CalHotResources;
 import org.silkroad.hot.CompleteHotResInfo;
 import org.silkroad.processing.logs.ClassifyLogsByRole;
 import org.silkroad.processing.logs.ProcessLogs;
+import org.silkroad.utility.GetProperty;
 
 /**
 * @author : wuke
-* @date   : 2017年4月27日下午4:45:16
+* @date   : 20170427 16:45:16
 * Title   : InitializeSilkRoad
 * Description : 
 */
-public class InitializeSilkRoad {
-	private static final String PATH = "E:\\data\\silkroad_logs.txt"; // the catalog where logs are stored
-	
+public class InitializeSilkRoad {	
 	public static void main(String[] args) {
 		InitializeSilkRoad.initSilkRoad();
 	}
 	
     public static void initSilkRoad() {
+    	String logs_path = GetProperty.getPropertyByName("logs_path");
+    	
 		long start = System.currentTimeMillis();
     	
-		ProcessLogs.initProcessLogs(PATH);
+		ProcessLogs.initProcessLogs(logs_path);
 		ClassifyLogsByRole.classifyLogsByRole();
 		System.out.println("******************** 日志处理成功！********************");
 		long tag1 = System.currentTimeMillis();

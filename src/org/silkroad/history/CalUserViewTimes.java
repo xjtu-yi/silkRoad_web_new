@@ -8,7 +8,7 @@ import static com.mongodb.client.model.Filters.*;
 
 /**
 * @author : wuke
-* @date   : 2017年4月23日上午11:04:41
+* @date   : 20170423 11:04:41
 * Title   : CalUserViewedTimes
 * Description : Calculate user's view tiems of different type resources, store in silkRoad.user_viewed_times
 * an example
@@ -41,9 +41,9 @@ public class CalUserViewTimes {
 	 * 
 	 */
 	public static void calAllUsersViewedTimes() {
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", "user_viewed_times");
+		MongoCollection<Document> collection = MongoConn.getMongoCollection("user_viewed_times");
 		collection.drop(); // delete the old data
-		collection = MongoConn.getMongoCollection("silkRoad", "user_viewed_times");
+		collection = MongoConn.getMongoCollection("user_viewed_times");
 		
 		for(Integer i = 100; i < 1000; i++) {
 			CalUserViewTimes.storeUserViewedTimes(i.toString());
@@ -58,7 +58,7 @@ public class CalUserViewTimes {
 		String collectionName = "user_viewed_times";
 		int[] timesArr = null;;
 		
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		timesArr = CalUserViewTimes.calUserViewedTimesAll(user_id);
 		
@@ -104,7 +104,7 @@ public class CalUserViewTimes {
 		String collectionName = "user_viewed_" + res_type;
 		int times = 0; // default 0
 		
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		Document doc = collection.find(eq("user_id", user_id)).first();
 		if(doc != null) {

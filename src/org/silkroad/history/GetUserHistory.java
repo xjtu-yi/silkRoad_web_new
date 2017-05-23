@@ -12,7 +12,7 @@ import static com.mongodb.client.model.Filters.eq;
 
 /**
 * @author : wuke
-* @date   : 2017年4月25日下午9:52:11
+* @date   : 20170425 21:52:11
 * Title   : GetUserHistory
 * Description : using user_id and res_type, select user history from MongoDB
 */
@@ -29,7 +29,7 @@ public class GetUserHistory {
 		
 		// Query from MongoDB
 		String collectionName = "user_viewed_" + res_type + "_complete";
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		BasicDBObject sort = new BasicDBObject();
 		sort.put("times", -1); // descending by "times"

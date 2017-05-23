@@ -16,10 +16,10 @@ import com.mongodb.client.MongoCursor;
 
 /**
 * @author : wuke
-* @date   : 2017年4月24日上午11:31:36
+* @date   : 20170424 11:31:36
 * Title   : CompleteUserViewedResInfo
 * Description : Complete the information of resource in user_viewed_company, user_viewed_country...
-* 没有考虑增量计算
+* TODO Need to add incremental computation
 */
 public class CompleteUserViewedResInfo {
 	private static final String[] RESOURCE_TYPE =  {"company", "country", "pebook", "regulation", "uansr", "uebook"};
@@ -50,7 +50,7 @@ public class CompleteUserViewedResInfo {
 	 */
 	private static void completeOneKindResInfo(String res_type) {
 		String collectionName = "user_viewed_" + res_type;
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		MongoCursor<Document> cursor = collection.find().iterator();
 		
@@ -430,7 +430,7 @@ public class CompleteUserViewedResInfo {
 	 */
 	private static void storeOneDoc(String res_type, Document doc) {
 		String collectionName = "user_viewed_" + res_type + "_complete";
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		collection.insertOne(doc);
 	}
@@ -445,7 +445,7 @@ public class CompleteUserViewedResInfo {
 		
 		MongoCollection<Document> collection = null;
 		for(String collectionName : collectionNames) {
-		 collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		 collection = MongoConn.getMongoCollection(collectionName);
 		 collection.drop();
 		}
 	}

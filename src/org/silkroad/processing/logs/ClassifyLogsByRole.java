@@ -12,12 +12,11 @@ import org.silkroad.utility.MongoConn;
 
 /**
 * @author : wuke
-* @date   : 2017年4月21日下午10:30:46
+* @date   : 20170421 22:30:46
 * Title   : ClassifyLogsByRole
 * Description : Classify logs by role
 */
 public class ClassifyLogsByRole {
-	private static final String DATABASENAME = "silkRoad";
 	private static final String[] ROLES =  {"student", "engineer", "scholar", "other"};
 	
 	public static void main(String[] args) {
@@ -31,7 +30,7 @@ public class ClassifyLogsByRole {
 	}
 	
 	public static void classifyLogsByRole() {
-		MongoCollection<Document> logs = MongoConn.getMongoCollection(DATABASENAME, "logs");
+		MongoCollection<Document> logs = MongoConn.getMongoCollection("logs");
 		
 		List<Document> studentDocs = new ArrayList<Document>();
 		List<Document> engineerDocs = new ArrayList<Document>();
@@ -76,10 +75,10 @@ public class ClassifyLogsByRole {
 	 * @param documents
 	 */
 	public static void storeMongo(String collectionName, List<Document> documents) {
-		MongoCollection<Document> collection = MongoConn.getMongoCollection(DATABASENAME, collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		collection.drop(); // delete the old data
-		collection = MongoConn.getMongoCollection(DATABASENAME, collectionName);
+		collection = MongoConn.getMongoCollection(collectionName);
 		
 		if(documents.size() > 0) {
 		    collection.insertMany(documents);

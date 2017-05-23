@@ -28,7 +28,6 @@ public class HotResController extends HttpServlet {
      */
     public HotResController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -59,7 +58,7 @@ public class HotResController extends HttpServlet {
 		
 		// Query from MongoDB
 		String collectionName = user_type + "_hot_complete"; 
-		MongoCollection<Document> collection = MongoConn.getMongoCollection("silkRoad", collectionName);
+		MongoCollection<Document> collection = MongoConn.getMongoCollection(collectionName);
 		
 		List<Document> docList = null;
 		docList = collection.find().into(new ArrayList<Document>());
