@@ -2,9 +2,9 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017��4��21������9:11:58 
+ * @date : 20170421 21:11:58 
  * Title : PeBook 
- * Description : �˿����ݿ�(pebook)
+ * Description : 人口数据库(pebook)
  */
 public class PeBook extends Resource{
 	private String title;

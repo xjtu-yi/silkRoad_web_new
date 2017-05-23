@@ -2,7 +2,7 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017年4月21日下午9:31:00 
+ * @date : 20170421 21:31:00 
  * Title : UeBook 
  * Description : 历史文化数据库(History and Culture)
  */

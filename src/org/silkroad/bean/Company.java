@@ -2,9 +2,9 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017Äê4ÔÂ21ÈÕÏÂÎç9:01:25 
+ * @date : 20170421 21:01:25 
  * Title : Company 
- * Description : ¹¤Òµ¾­¼ÃÊı¾İ¿â(Fortune Global 500)
+ * Description : å·¥ä¸šç»æµæ•°æ®åº“(Fortune Global 500)
  */
 public class Company extends Resource{
 	private String name;

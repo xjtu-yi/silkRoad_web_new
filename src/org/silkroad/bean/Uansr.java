@@ -2,9 +2,9 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017ï¿½ï¿½4ï¿½ï¿½21ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9:24:25 
+ * @date : 20170421 21:24:25 
  * Title : Uansr 
- * Description : ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½(Education of Science)
+ * Description : ½ÌÓý¿Æ¼¼Êý¾Ý¿â(Education of Science)
  */
 public class Uansr extends Resource {
 	private String author;

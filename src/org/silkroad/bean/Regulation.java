@@ -2,7 +2,7 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017年4月21日下午9:16:28 
+ * @date : 20170421 21:16:28 
  * Title : Regulation 
  * Description : 政策法规数据库(IEEE)
  */

@@ -2,9 +2,9 @@ package org.silkroad.bean;
 
 /**
  * @author : wuke
- * @date : 2017Äê4ÔÂ21ÈÕÏÂÎç5:15:48 
+ * @date : 20170421 17:15:48 
  * Title : Country 
- * Description : ¹úÇé×ÉÎÄÊı¾İ¿â(Nation Conditions)
+ * Description : å›½æƒ…å’¨æ–‡æ•°æ®åº“(Nation Conditions)
  */
 public class Country extends Resource {
 	private String title;
