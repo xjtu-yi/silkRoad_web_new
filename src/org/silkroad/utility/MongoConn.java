@@ -38,8 +38,8 @@ public class MongoConn {
 		if (MONGOCLIENT == null) {
 			synchronized (MongoConn.class) {
 				if (MONGOCLIENT == null) {
-					MongoConn.initMongoClient(host, port);
-					// MongoConn.initMongoClientNoAuthentication(host, port);
+					// MongoConn.initMongoClient(host, port);
+					MongoConn.initMongoClientNoAuthentication(host, port);
 				}
 			}
 		}
@@ -57,11 +57,6 @@ public class MongoConn {
 		String password = GetProperty.getPropertyByName("mongo_password");
 		String databaseName = GetProperty.getPropertyByName("mongo_database");
 		
-		// String databaseName = "silkRoad";
-		// String username = "silkRoad";
-		// String password = "silkRoad123";
-		
-		// ServerAddress ip = new ServerAddress("localhost", 27017);
 		ServerAddress ip = new ServerAddress(host, port);
 		try {			
 			MongoCredential credential = MongoCredential.createCredential(username, databaseName, password.toCharArray());
@@ -76,8 +71,6 @@ public class MongoConn {
 	 */
 	public static void initMongoClientNoAuthentication(String host, int port) {
 		try {
-			// MONGOCLIENT = new MongoClient("localhost", 27017);
-			// MONGOCLIENT = new MongoClient("personalize-mongo", 27017);
 			MONGOCLIENT = new MongoClient(host, port);
 		} catch (Exception e) {
 			e.printStackTrace();
