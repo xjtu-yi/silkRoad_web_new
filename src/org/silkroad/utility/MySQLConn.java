@@ -21,14 +21,6 @@ public class MySQLConn {
 		String username = GetProperty.getPropertyByName("mysql_username");
 		String password = GetProperty.getPropertyByName("mysql_password");
 		
-		// String driver = "com.mysql.jdbc.Driver";
-		// String url = "jdbc:mysql://localhost:3306/silkroadresource_new?characterEncoding=utf8&useSSL=false&autoReconnect=true";
-		// String username = "root";
-		// String password = "1234";
-		
-		/*url = "jdbc:mysql://personalize-mysql:3306/silkroad_personalize?characterEncoding=utf8&useSSL=false";
-		username = "personalize";
-		password = "P0$sW0rD$Sp";*/
 		try {		    
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, username, password);
